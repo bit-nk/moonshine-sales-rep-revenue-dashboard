@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+  /* Dark charcoal background */
+  --background: 0 0% 10%;
+  --foreground: 0 0% 95%;
+
+  /* Lighter charcoal cards */
+  --card: 0 0% 14%;
+  --card-foreground: 0 0% 95%;
+
+  --popover: 0 0% 14%;
+  --popover-foreground: 0 0% 95%;
+
+  /* Primary: #00e5cc - lumo teal */
+  --primary: 172 100% 45%;
+  --primary-foreground: 0 0% 5%;
+
+  /* Secondary: muted grey */
+  --secondary: 0 0% 22%;
+  --secondary-foreground: 0 0% 90%;
+
+  /* Muted */
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 64%;
+
+  --accent: 172 100% 45%;
+  --accent-foreground: 0 0% 5%;
+
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 95%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 172 100% 45%;
+
+  --radius: 0.625rem;
+
+  /* Development-specific chart colors */
+  --chart-dev-1: 172 100% 45%;  /* lumo teal */
+  --chart-dev-2: 210 52% 50%;  /* brighter navy */
+  --chart-dev-3: 18 52% 50%;  /* brighter terracotta */
+  --chart-dev-4: 120 35% 50%;  /* brighter sage */
+  --chart-dev-5: 270 35% 55%;  /* brighter purple */
+  --chart-dev-6: 35 55% 55%;  /* brighter amber */
+  --chart-dev-7: 190 45% 50%;  /* brighter teal */
+
+  /* General chart colors */
+  --chart-1: 172 100% 45%;
+  --chart-2: 210 52% 50%;
+  --chart-3: 18 52% 50%;
+  --chart-4: 120 35% 50%;
+  --chart-5: 0 0% 50%;
+  --chart-6: 0 0% 40%;
+
+  --kpi-highlight: 172 100% 45%;
+  --kpi-neutral: 0 0% 50%;
+  --highlight: 172 100% 45%;
+  --highlight-foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+  @apply border-border;
+  }
+
+  body {
+  @apply bg-background text-foreground;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(0, 180, 166, 0.04); }
+  50% { box-shadow: 0 0 18px 6px rgba(0, 180, 166, 0.10); }
+}
+
+.visual-card-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Pulsing status dot (e.g. Over-pacing indicator) */
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(135, 127, 73, 0.55); transform: scale(1); }
+  50%  { box-shadow: 0 0 0 6px rgba(135, 127, 73, 0);  transform: scale(1.15); }
+}
+.status-dot-pulse {
+  animation: status-pulse 1.6s ease-out infinite;
+}
+
+/* Themed scrollbar  -  gold on dark */
+.themed-scroll::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.themed-scroll::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 6px;
+}
+.themed-scroll::-webkit-scrollbar-thumb {
+  background: rgba(135, 127, 73, 0.4);
+  border-radius: 6px;
+  border: 2px solid rgba(10, 10, 10, 0.6);
+}
+.themed-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 127, 73, 0.65);
+}
+.themed-scroll {
+  scrollbar-color: rgba(135, 127, 73, 0.4) rgba(10, 10, 10, 0.6);
+  scrollbar-width: thin;
+}
