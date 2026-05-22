@@ -25,3 +25,11 @@ dist-ssr
 
 # Local tooling / IDE
 .claude
+.claude/
+.anthropic
+.ai
+
+# Local-only reference notes (not for the repo)
+memory.md
+MEMORY.md
+notes.local.md

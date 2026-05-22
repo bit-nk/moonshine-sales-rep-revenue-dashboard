@@ -21,25 +21,6 @@ export default defineConfig(() => ({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes("node_modules")) return undefined;
-          if (id.includes("/recharts/") || id.includes("/d3-")) return "recharts";
-          if (id.includes("/framer-motion/")) return "framer-motion";
-          if (id.includes("/@radix-ui/")) return "radix";
-          if (id.includes("/@tanstack/")) return "tanstack";
-          if (
-            id.includes("/react/") ||
-            id.includes("/react-dom/") ||
-            id.includes("/react-router") ||
-            id.includes("/scheduler/")
-          ) {
-            return "react";
-          }
-          return "vendor";
-        },
-      },
-    },
+    chunkSizeWarningLimit: 1200,
   },
 }));
